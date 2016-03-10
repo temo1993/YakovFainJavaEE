@@ -58,17 +58,17 @@ public class ShoppingCartServlet extends HttpServlet {
 
 		// Add the content of the shopping cart to the Web page
 		out.println("<body>Your shopping cart content:");
-		myShoppingCart.forEach(book -> 
-		      out.printf("<br>Title: %s, price: %.2f",  book.title, book.price)   
+		myShoppingCart.forEach(book ->
+		      out.printf("<br>Title: %s, price: %.2f",  book.title, book.price)
 	       );
-		
-		//Add the HTML form to the Web page 
+
+		//Add the HTML form to the Web page
 		out.println("<p>Add another book to the shopping cart:");
 	    out.println("<form action=shoppingcart method=Get>");
 	    out.println("<input type=Text name=booktitle>");
 	    out.println("<input type=Text name=price>");
 	    out.println("<input type=Submit value='Add to shopping cart'>");
 	    out.println("</form>");
-	    out.println("</body>");		
+	    out.println("</body>");
 	}
 }
