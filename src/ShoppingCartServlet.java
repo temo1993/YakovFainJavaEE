@@ -52,7 +52,12 @@ public class ShoppingCartServlet extends HttpServlet {
 
 		// Put the shopping cart back into the session object
 		session.setAttribute("shoppingCart", myShoppingCart);
-		
+
+		//check whether the user clicked on the button. If yes,invalidate the session.
+		if (request.getParameter("placeorder") != null) {
+			session.invalidate();
+		}
+
 		// Prepare the Web page and send it to the browser
 		PrintWriter out = response.getWriter();
 
@@ -68,6 +73,7 @@ public class ShoppingCartServlet extends HttpServlet {
 	    out.println("<input type=Text name=booktitle>");
 	    out.println("<input type=Text name=price>");
 	    out.println("<input type=Submit value='Add to shopping cart'>");
+	    out.println("<input type=Submit name=placeorder value='Place Order'>");
 	    out.println("</form>");
 	    out.println("</body>");
 	}
